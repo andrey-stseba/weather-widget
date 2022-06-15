@@ -32,21 +32,23 @@ function getWeather(data) {
     const weatherIcon = data.weather[0].icon;
     // HTML шаблон
     const template = `
-    <div class="weather__header">
-    	<div class="weather__main">
-    		<div class="weather__city">${location}</div>
-    		<div class="weather__status">${weatherStatus}</div>
-    	</div>
-    	<div class="weather__icon">
-    		<img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="${weatherStatus}">
-    	</div>
-    </div>
-    <div class="weather__temp">${temp}</div>
-    <div class="weather__feels-like">Feels like: ${feelsLike}</div>`;
-
-    // weatherBlock.innerHTML = template;
+    <div class="weather__body">
+        <div class="weather__header">
+            <div class="weather__main">
+                <div class="weather__city">${location}</div>
+                <div class="weather__status">${weatherStatus}</div>
+            </div>
+            <div class="weather__icon">
+                <img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="${weatherStatus}">
+            </div>
+        </div>
+        <div class="weather__temp">${temp}</div>
+        <div class="weather__feels-like">Feels like: ${feelsLike}</div>
+    </div>`;
     weatherBlock.insertAdjacentHTML('beforeend', template)
-    weatherBlock.querySelector('.weather__loading').remove()
+    const weatherLoading = weatherBlock.querySelector('.weather__loading')
+    if (weatherLoading) { weatherLoading.remove() }
+
 }
 
 const citys = ['Zaporizhzhia', 'Kiev', 'Dnipro'];

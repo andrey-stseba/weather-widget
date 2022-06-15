@@ -1,27 +1,27 @@
 /* Обнуление */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
 *,
 *::before,
 *::after {
-	padding: 0;
-	margin: 0;
-	border: 0;
-	box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 ul,
 ol,
 li {
-	list-style: none;
+    list-style: none;
 }
 
 img {
-	vertical-align: top;
+    vertical-align: top;
 }
 
 h1,
@@ -30,82 +30,104 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: inherit;
-	font-size: inherit;
+    font-weight: inherit;
+    font-size: inherit;
 }
 
 html,
 body {
-	height: 100%;
-	line-height: 1;
-	font-size: 16px;
-	background-color: #333;
-	color: #fff;
-	font-family: Montserrat;
+    height: 100%;
+    line-height: 1;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    font-family: Montserrat;
 }
 
 button {
-	background-color: inherit;
-	font-weight: inherit;
-	font-size: inherit;
-	color: inherit;
+    background-color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
 }
 
 .wrapper {
-	min-height: 100%;
-	padding: 50px;
+    min-height: 100%;
+    padding: 50px;
 }
 
+
 /* ------------------ */
+
+
 /* ------------------ */
+
+
 /* ------------------ */
+
+
 /* ------------------ */
 
 .weather {
-	background-color: #7A956B;
-	border-radius: 10px;
-	padding: 20px;
-	max-width: 450px;
-	margin: 0 auto;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #7A956B;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.weather__loading{
-	display: flex;
-	justify-content:center;align-items: center;
-}
-.weather__loading img{
-	max-width: 50px;
+.weather__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.weather__header{
-	display: flex;
+.weather__loading img {
+    max-width: 50px;
 }
+
+.weather__header {
+    display: flex;
+}
+
 .weather__main {
-	flex: 1 1 auto;
+    flex: 1 1 auto;
 }
+
 .weather__city {
-	font-size: 40px;
-	font-weight: 700;
-	margin-bottom: 15px;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
+
 .weather__status {
-	font-size: 20px;
-	margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
-.weather__body {}
+
+.weather__body:not(:last-child) {
+    border-bottom: 1px solid white;
+    padding-bottom: 20px;
+}
+
+.weather__body:not(:first-child) {
+    padding-top: 20px;
+}
+
 .weather__icon {}
 
 .weather__temp {
-	font-size: 30px;
-	font-weight: 700;
-	margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
-.weather__feels-like{
-}
+
+.weather__feels-like {}
+
 .weather__temp::after,
-.weather__feels-like::after{
-	display: inline-block;
-	margin-left: 5px;
-	content: "°C";
+.weather__feels-like::after {
+    display: inline-block;
+    margin-left: 5px;
+    content: "°C";
 }
