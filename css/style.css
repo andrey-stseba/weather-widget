@@ -101,7 +101,7 @@ button {
     margin-bottom: 15px;
 }
 
-@media (max-width:500px) {
+@media (width:500px) {
     .weather__city {
         font-size: 20px;
     }
