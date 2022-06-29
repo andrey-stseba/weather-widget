@@ -1,37 +1,35 @@
-"use strict"
+'use strict'
 
 // Блок з погодою
-const weatherBlock = document.querySelector('#weather');
+const weatherBlock = document.querySelector('#weather')
 
-async function loadWeather(e) {
-    weatherBlock.innerHTML = `
+async function loadWeather (e) {
+  weatherBlock.innerHTML = `
     	<div class="weather__loading">
     		<img src="img/loading.gif" alt="Loading...">
-    	</div>`;
-    const server = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${e}&appid=522f7ec766b55c89fccbc47a4e7a72c0`;
-    const response = await fetch(server, {
-        method: 'GET',
-    });
-    const responseResult = await response.json();
+    	</div>`
+  const server = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${e}&appid=2b8fb67297bc1a15770e44d7b37c8be5`
+  const response = await fetch(server, {
+    method: 'GET'
+  })
+  const responseResult = await response.json()
 
-    if (response.ok) {
-        getWeather(responseResult);
-    } else {
-        weatherBlock.innerHTML = responseResult.message;
-    }
+  if (response.ok) {
+    getWeather(responseResult)
+  } else {
+    weatherBlock.innerHTML = responseResult.message
+  }
 }
 
-
-
-function getWeather(data) {
-    // Обробляємо та виводимо данні
-    const location = data.name;
-    const temp = Math.round(data.main.temp);
-    const feelsLike = Math.round(data.main.feels_like);
-    const weatherStatus = data.weather[0].main;
-    const weatherIcon = data.weather[0].icon;
-    // HTML шаблон
-    const template = `
+function getWeather (data) {
+  // Обробляємо та виводимо данні
+  const location = data.name
+  const temp = Math.round(data.main.temp)
+  const feelsLike = Math.round(data.main.feels_like)
+  const weatherStatus = data.weather[0].main
+  const weatherIcon = data.weather[0].icon
+  // HTML шаблон
+  const template = `
     <div class="weather__body">
         <div class="weather__header">
             <div class="weather__main">
@@ -44,17 +42,18 @@ function getWeather(data) {
         </div>
         <div class="weather__temp">${temp}</div>
         <div class="weather__feels-like">Feels like: ${feelsLike}</div>
-    </div>`;
-    weatherBlock.insertAdjacentHTML('beforeend', template)
-    const weatherLoading = weatherBlock.querySelector('.weather__loading')
-    if (weatherLoading) { weatherLoading.remove() }
-
+    </div>`
+  weatherBlock.insertAdjacentHTML('beforeend', template)
+  const weatherLoading = weatherBlock.querySelector('.weather__loading')
+  if (weatherLoading) {
+    weatherLoading.remove()
+  }
 }
 
-const citys = ['Zaporizhzhia', 'Kiev', 'Dnipro'];
+const citys = ['Zaporizhzhia', 'Kiev', 'Mykulychyn']
 
 if (weatherBlock) {
-    citys.forEach(element => {
-        loadWeather(element);
-    });
+  citys.forEach(element => {
+    loadWeather(element)
+  })
 }
